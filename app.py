@@ -12,7 +12,8 @@ st.write("""# QRコード生成アプリ
 
 text = st.text_input("入力エリア")
 
-with BytesIO() as out:
-    img = qrcode.make(text)
-    img.save(out)
-    st.image(out)
+if text:
+    with BytesIO() as out:
+        img = qrcode.make(text)
+        img.save(out)
+        st.image(out)
